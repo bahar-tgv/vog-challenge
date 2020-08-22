@@ -4,9 +4,9 @@ using VogCodeChallenge.Entities;
 
 namespace VogCodeChallenge.API.Services
 {
-    public class DataContext : IDataContext
+    public class InMemoryDataContext  : IDataContext
     {
-        public DataContext()
+        public InMemoryDataContext()
         {
             InitializeDepartments();
             InitializeEmployees();
@@ -15,12 +15,12 @@ namespace VogCodeChallenge.API.Services
         private IEnumerable<Employee> InMemoryEmployees { get; set; }
         private IEnumerable<Department> InMemoryDepartments { get; set; }
 
-        public IQueryable<Employee> Employees()
+        public IEnumerable<Employee> Employees()
         {
             return InMemoryEmployees.AsQueryable();
         }
 
-        public IQueryable<Department> Departments()
+        public IEnumerable<Department> Departments()
         {
             return InMemoryDepartments.AsQueryable();
         }
