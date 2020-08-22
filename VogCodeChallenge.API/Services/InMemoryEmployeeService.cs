@@ -5,28 +5,21 @@ using VogCodeChallenge.Entities;
 
 namespace VogCodeChallenge.API.Services
 {
-    public class EmployeeService : IEmployeeService
+    public class InMemoryEmployeeService : IEmployeeService
     {
-        private readonly RelationalDbContext _db;
-
-        public EmployeeService(RelationalDbContext db)
-        {
-            _db = db;
-        }
-
         public IEnumerable<Employee> GetAll()
         {
-            return _db.Employees;
+            return TestData.InMemoryEmployees;
         }
 
         public IEnumerable<Employee> GetByDepartment(int departmentId)
         {
-            return _db.Employees.Where(e => e.Department != null && e.Department.Id == departmentId);
+            return TestData.InMemoryEmployees.Where(e => e.Department != null && e.Department.Id == departmentId);
         }
 
         public IList<Employee> ListAll()
         {
-            return _db.Employees.ToList();
+            return TestData.InMemoryEmployees.ToList();
         }
     }
 }

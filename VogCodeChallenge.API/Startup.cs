@@ -19,9 +19,24 @@ namespace VogCodeChallenge.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IDataContext, DataContext>();
-            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<IDepartmentService, InMemoryDepartmentService>();
+            services.AddScoped<IEmployeeService, InMemoryEmployeeService>();
+            
+            //we can add some configuration to appSetting if we want to decide load in memory or database data dynamically
+            /*
+             services.AddScoped<IDepartmentService, DepartmentService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            */
+            
+            
+            
+            //we should add these statements for DbContext configuration
+            /*services.AddDbContext<RelationalDbContext>(options =>
+            {
+                var connectionstring = Configuration.GetConnectionString("DataContext");
+                options.UseSqlServer(connectionstring);
+            });*/
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

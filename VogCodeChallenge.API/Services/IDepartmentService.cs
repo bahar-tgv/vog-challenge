@@ -5,6 +5,5 @@ namespace VogCodeChallenge.API.Services
 {
     public interface IDepartmentService
     {
-        IList<Department> ListAll();
     }
 }

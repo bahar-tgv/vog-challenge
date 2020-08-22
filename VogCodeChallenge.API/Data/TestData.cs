@@ -2,30 +2,21 @@
 using System.Linq;
 using VogCodeChallenge.Entities;
 
-namespace VogCodeChallenge.API.Services
+namespace VogCodeChallenge.API.Data
 {
-    public class InMemoryDataContext  : IDataContext
+    public static class TestData
     {
-        public InMemoryDataContext()
+        static TestData()
         {
             InitializeDepartments();
             InitializeEmployees();
         }
 
-        private IEnumerable<Employee> InMemoryEmployees { get; set; }
-        private IEnumerable<Department> InMemoryDepartments { get; set; }
+        public static IEnumerable<Employee> InMemoryEmployees { get; private set; }
+        public static IEnumerable<Department> InMemoryDepartments { get; private set; }
 
-        public IEnumerable<Employee> Employees()
-        {
-            return InMemoryEmployees.AsQueryable();
-        }
 
-        public IEnumerable<Department> Departments()
-        {
-            return InMemoryDepartments.AsQueryable();
-        }
-
-        private void InitializeDepartments()
+        private static void InitializeDepartments()
         {
             var firstDepartment = new Department
             {
@@ -43,7 +34,7 @@ namespace VogCodeChallenge.API.Services
             InMemoryDepartments = new List<Department> {firstDepartment, secondDepartment};
         }
 
-        private void InitializeEmployees()
+        private static void InitializeEmployees()
         {
             var firstEmployee = new Employee
             {
