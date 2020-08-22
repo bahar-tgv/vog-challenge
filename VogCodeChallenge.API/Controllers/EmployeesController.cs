@@ -18,21 +18,24 @@ namespace VogCodeChallenge.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Employee> Get()
+        public ActionResult<IEnumerable<Employee>> Get()
         {
             var employees = _employeeService.ListAll();
             //It is better to return DTO for seperating original model from the model we want to show to users
-            return employees;
+            return Ok(employees);
         }
 
         [HttpGet]
         [Route("department/{departmentId}")]
-        public IEnumerable<Employee> GetByDepartmentId(int departmentId)
+        public ActionResult<IEnumerable<Employee>> GetByDepartmentId(int departmentId)
         {
-            var employees = _employeeService.GetAll()
-                .Where(e => e.Department != null && e.Department.Id == departmentId).ToList();
+            if (departmentId <= 0) return BadRequest("Department Id is out of range");
+            var employees = _employeeService.GetByDepartment(departmentId);
             //It is better to return DTO for seperating original model from the model we want to show to users
-            return employees;
+            if (employees != null && employees.Any())
+                return Ok(employees);
+
+            return NotFound();
         }
     }
 }

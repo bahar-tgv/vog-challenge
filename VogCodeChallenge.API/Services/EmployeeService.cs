@@ -21,6 +21,11 @@ namespace VogCodeChallenge.API.Services
             return InMemoryEmployees;
         }
 
+        public IEnumerable<Employee> GetByDepartment(int departmentId)
+        {
+            return InMemoryEmployees.Where(e => e.Department != null && e.Department.Id == departmentId);
+        }
+
         public IList<Employee> ListAll()
         {
             return InMemoryEmployees;
