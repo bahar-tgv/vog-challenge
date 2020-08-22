@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogCodeChallenge.API", "VogCodeChallenge.API\VogCodeChallenge.API.csproj", "{713CF462-EBA7-401C-8B8F-2A3ADB14F473}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VogCodeChallenge.API", "VogCodeChallenge.API\VogCodeChallenge.API.csproj", "{713CF462-EBA7-401C-8B8F-2A3ADB14F473}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VogCodeChallenge.Entities", "VogCodeChallenge.Entities\VogCodeChallenge.Entities.csproj", "{7BFC1337-28C7-40FA-9EBE-B72EF05BDDDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VogCodeChallenge.Entities", "VogCodeChallenge.Entities\VogCodeChallenge.Entities.csproj", "{7BFC1337-28C7-40FA-9EBE-B72EF05BDDDF}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7BFC1337-28C7-40FA-9EBE-B72EF05BDDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BFC1337-28C7-40FA-9EBE-B72EF05BDDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BFC1337-28C7-40FA-9EBE-B72EF05BDDDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
