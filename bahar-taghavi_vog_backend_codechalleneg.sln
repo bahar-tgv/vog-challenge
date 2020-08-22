@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VogCodeChallenge.Entities",
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VogCodeChallenge.ConsoleApp", "VogCodeChallenge.Console\VogCodeChallenge.ConsoleApp.csproj", "{672EA265-2FE6-4A9C-9F12-A0B679B96892}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8AD0853-CAB4-4D15-8489-0C8A1A4175FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{672EA265-2FE6-4A9C-9F12-A0B679B96892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672EA265-2FE6-4A9C-9F12-A0B679B96892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672EA265-2FE6-4A9C-9F12-A0B679B96892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672EA265-2FE6-4A9C-9F12-A0B679B96892}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
