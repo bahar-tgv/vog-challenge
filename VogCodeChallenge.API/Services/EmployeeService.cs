@@ -6,64 +6,26 @@ namespace VogCodeChallenge.API.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        private readonly IDepartmentService _departmentService;
+        private readonly IDataContext _dataContext;
 
-        public EmployeeService(IDepartmentService departmentService)
+        public EmployeeService(IDataContext dataContext)
         {
-            _departmentService = departmentService;
-            InitializeEmployees();
+            _dataContext = dataContext;
         }
-
-        private IList<Employee> InMemoryEmployees { get; set; }
 
         public IEnumerable<Employee> GetAll()
         {
-            return InMemoryEmployees;
+            return _dataContext.Employees();
         }
 
         public IEnumerable<Employee> GetByDepartment(int departmentId)
         {
-            return InMemoryEmployees.Where(e => e.Department != null && e.Department.Id == departmentId);
+            return _dataContext.Employees().Where(e => e.Department != null && e.Department.Id == departmentId);
         }
 
         public IList<Employee> ListAll()
         {
-            return InMemoryEmployees;
-        }
-
-
-        private void InitializeEmployees()
-        {
-            var departments = _departmentService.ListAll();
-            var firstEmployee = new Employee
-            {
-                Id = 10,
-                FirstName = "John",
-                LastName = "Doe",
-                JobTitle = "Software Engineer",
-                Address = "1010, First Avenue, Calgary, Alberta, Canada",
-                Department = departments.FirstOrDefault(d => d.Id == 1)
-            };
-            var secondEmployee = new Employee
-            {
-                Id = 11,
-                FirstName = "Jane",
-                LastName = "Bloggs",
-                JobTitle = "Director of Engineering",
-                Address = "2020, Second Avenue, Calgary, Alberta, Canada",
-                Department = departments.FirstOrDefault(d => d.Id == 2)
-            };
-
-            var thirdEmployee = new Employee
-            {
-                Id = 12,
-                FirstName = "Bahar",
-                LastName = "Taghavi",
-                JobTitle = "Software Engineer",
-                Address = "3030, third Avenue, Calgary, Alberta, Canada",
-                Department = departments.FirstOrDefault(d => d.Id == 1)
-            };
-            InMemoryEmployees = new List<Employee> {firstEmployee, secondEmployee, thirdEmployee};
+            return _dataContext.Employees().ToList();
         }
     }
 }
