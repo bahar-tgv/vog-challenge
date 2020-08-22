@@ -18,7 +18,7 @@ namespace VogCodeChallenge.API.Services
 
         public IEnumerable<Employee> GetAll()
         {
-            return InMemoryEmployees.AsEnumerable();
+            return InMemoryEmployees;
         }
 
         public IList<Employee> ListAll()
